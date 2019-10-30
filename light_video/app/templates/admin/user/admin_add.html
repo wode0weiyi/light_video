@@ -1,0 +1,82 @@
+<!-- 继承 -->
+{% extends 'admin/admin.html' %}
+<!-- css -->
+<!-- 内容 -->
+{% block content %}
+<section class="content-header">
+    <h1>微电影管理系统</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> 管理员管理</a></li>
+        <li class="active">添加管理员</li>
+    </ol>
+</section>
+<section class="content" id="showcontent">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">添加管理员</h3>
+                </div>
+                <form role="form" method="POST">
+                    {% include 'ui/flashed_error.html' %}
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="input_name">{{form.admin_name.label}}</label>
+                            {{form.admin_name}}
+                            {% for err in form.admin_name.errors %}
+                            <div class="col-md-12">
+                                <font style="color:red">{{ err }}</font>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_pwd">{{form.admin_pwd.label}}</label>
+                            {{form.admin_pwd}}
+                            {% for err in form.admin_pwd.errors %}
+                            <div class="col-md-12">
+                                <font style="color:red">{{ err }}</font>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_re_pwd">{{form.admin_repwd.label}}</label>
+                            {{form.admin_repwd}}
+                            {% for err in form.admin_repwd.errors %}
+                            <div class="col-md-12">
+                                <font style="color:red">{{ err }}</font>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_role_id">{{form.admin_role.label}}</label>
+                            {{form.admin_role}}
+                            {% for err in form.admin_role.errors %}
+                            <div class="col-md-12">
+                                <font style="color:red">{{ err }}</font>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                    <div class="box-footer">
+                        {{form.admin_submit}}
+                        {{form.csrf_token}}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+<!-- js -->
+{% block js %}
+<script>
+    $(document).ready(function () {
+        $('#g-11').addClass('active')
+        $('#g-11-1').addClass('active')
+    })
+</script>
+{% endblock %}
