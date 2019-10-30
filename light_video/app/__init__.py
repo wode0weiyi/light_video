@@ -18,7 +18,7 @@ from app.mobile import mobile as mobile_blueprint
 
 # 注册路由
 app.register_blueprint(home_blueprint,url_prefix='/movie')
-app.register_blueprint(admin_blueprint, url_prefix='/admin')
+app.register_blueprint(admin_blueprint, url_prefix='/movie/admin')
 app.register_blueprint(mobile_blueprint,url_prefix='/mobile')
 
 @app.errorhandler(404)
