@@ -6,7 +6,7 @@ if __name__ == "__main__":
     config = dict(
         debug=True,
         host='localhost',
-        port=8001
+        port=8000
     )
     app.run(**config)
     
