@@ -2,10 +2,10 @@
 <!--  -->
 {% block css %}
 <!--播放页面-->
-<link rel="stylesheet" type="text/css" href={{ url_for( 'static', filename='jwplayer/skins/stormtrooper.css' ) }}>
-<script type="text/javascript" src={{ url_for( 'static', filename='ueditor/ueditor.config.js' ) }}></script>
-<script type="text/javascript" src={{ url_for( 'static', filename='ueditor/ueditor.all.js' ) }}></script>
-<script type="text/javascript" src={{ url_for( 'static', filename='ueditor/lang/zh-cn/zh-cn.js' ) }}></script>
+<link rel="stylesheet" type="text/css" href={{ url_for( 'movieStatic', filename='jwplayer/skins/stormtrooper.css' ) }}>
+<script type="text/javascript" src={{ url_for( 'movieStatic', filename='ueditor/ueditor.config.js' ) }}></script>
+<script type="text/javascript" src={{ url_for( 'movieStatic', filename='ueditor/ueditor.all.js' ) }}></script>
+<script type="text/javascript" src={{ url_for( 'movieStatic', filename='ueditor/lang/zh-cn/zh-cn.js' ) }}></script>
 <script>
     SyntaxHighlighter.all();
 </script>
@@ -236,7 +236,7 @@
 {% endblock %}
 <!--  -->
 {% block js %}
-<script src={{ url_for( 'static', filename='jwplayer/jwplayer.js' ) }}></script>
+<script src={{ url_for( 'movieStatic', filename='jwplayer/jwplayer.js' ) }}></script>
 <script>
     var ue = UE.getEditor('input_content', {
         toolbars: [
@@ -251,16 +251,16 @@
 </script>
 <script type="text/javascript">
     jwplayer("moviecontainer").setup({
-        flashplayer: "{{ url_for('static',filename='jwplayer/jwplayer.flash.swf') }}",
+        flashplayer: "{{ url_for('movieStatic',filename='jwplayer/jwplayer.flash.swf') }}",
         playlist: [{
-            file: "{{ url_for('static',filename='video/htpy.mp4') }}",
+            file: "{{ url_for('movieStatic',filename='video/htpy.mp4') }}",
             title: "环太平洋"
         }],
         modes: [{
             type: "html5"
         }, {
             type: "flash",
-            src: "{{ url_for( 'static', filename='jwplayer/jwplayer.flash.swf' ) }}"
+            src: "{{ url_for( 'movieStatic', filename='jwplayer/jwplayer.flash.swf' ) }}"
         }, {
             type: "download"
         }],

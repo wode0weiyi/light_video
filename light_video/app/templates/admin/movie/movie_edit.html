@@ -69,7 +69,7 @@
                                 <font style="color:red">{{ err }}</font>
                             </div>
                             {% endfor %}
-                            <img src="{{ url_for( 'static', filename='uploads/' + movie.logo  ) }}" style="margin-top:5px; width:300px;height:200px;" class="img-responsive" alt="">
+                            <img src="{{ url_for( 'movieStatic', filename='uploads/' + movie.logo  ) }}" style="margin-top:5px; width:300px;height:200px;" class="img-responsive" alt="">
                         </div>
                         <div class="form-group">
                             <label for="input_star">{{ form.movie_star.label }}</label>
@@ -128,23 +128,23 @@
 </section>
 {% endblock %}
 {% block js %}
-<script src={{ url_for( 'static', filename='jwplayer/jwplayer.js' ) }}></script>
+<script src={{ url_for( 'movieStatic', filename='jwplayer/jwplayer.js' ) }}></script>
 <script type="text/javascript">
     jwplayer.key = "P9VTqT/X6TSP4gi/hy1wy23BivBhjdzVjMeOaQ==";
 
 </script>
 <script type="text/javascript">
     jwplayer("moviecontainer").setup({
-        flashplayer: "{{ url_for( 'static', filename='jwplayer/jwplayer.flash.swf' ) }}",
+        flashplayer: "{{ url_for( 'movieStatic', filename='jwplayer/jwplayer.flash.swf' ) }}",
         playlist: [{
-            file: "{{ url_for( 'static', filename='uploads/' + movie.url  ) }}",
+            file: "{{ url_for( 'movieStatic', filename='uploads/' + movie.url  ) }}",
             title: "{{ movie.title }}"
         }],
         modes: [{
             type: "html5"
         }, {
             type: "flash",
-            src: "{{ url_for( 'static', filename='jwplayer/jwplayer.flash.swf' ) }}"
+            src: "{{ url_for( 'movieStatic', filename='jwplayer/jwplayer.flash.swf' ) }}"
         }, {
             type: "download"
         }],

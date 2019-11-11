@@ -1,6 +1,6 @@
 #coding:utf8
 from flask_sqlalchemy import SQLAlchemy
-from flask import (Flask, render_template)
+from flask import (Flask, render_template,url_for,redirect,Blueprint,request,flash)
 import pymysql,os
 
 
@@ -20,6 +20,26 @@ from app.mobile import mobile as mobile_blueprint
 app.register_blueprint(home_blueprint,url_prefix='/movie')
 app.register_blueprint(admin_blueprint, url_prefix='/movie/admin')
 app.register_blueprint(mobile_blueprint,url_prefix='/mobile')
+
+@app.context_processor
+def inject_url():
+    data = {
+        "url_for": dated_url_for,
+    }
+    return data
+
+def dated_url_for(endpoint, **values):
+    print(endpoint,values)
+    if endpoint == 'movieStatic':
+        filename = values.get('filename', None)
+        if filename:
+            endpoint = 'static'
+            file_path = os.path.join(app.root_path, endpoint, filename)
+            print(file_path)
+            values['v'] = int(os.stat(file_path).st_mtime)  # 取文件最后修改时间的时间戳，文件不更新，则可用缓存
+            return url_for(endpoint, **values)
+    else:
+        return url_for(endpoint)
 
 @app.errorhandler(404)
 def page_not_fount(error):

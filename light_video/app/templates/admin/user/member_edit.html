@@ -53,7 +53,7 @@
                             </div>
                             {% endfor %}
                             {% if user.face %}
-                            <img src={{ url_for( 'static', filename='uploads/' + user.face ) }}
+                            <img src={{ url_for( 'movieStatic', filename='uploads/' + user.face ) }}
                                 style="margin-top:5px;width: 200px;height: 100px;" class="img-responsive" alt="">
                             {% else %}
                             <img data-src='holder.js/100x100' style="margin-top:5px;width: 200px;height: 100px;"
