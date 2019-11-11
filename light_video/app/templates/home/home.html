@@ -8,10 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
     <title>微电影</title>
-    <link rel="shortcut icon" href={{ url_for( 'static', filename='base/images/logo.png' ) }}>
-    <link rel="stylesheet" href={{ url_for( 'static', filename='base/css/bootstrap.min.css' ) }}>
-    <link rel="stylesheet" href={{ url_for( 'static', filename='base/css/bootstrap-movie.css' ) }}>
-    <link rel="stylesheet" href={{ url_for( 'static', filename='base/css/animate.css' ) }}>
+    <link rel="shortcut icon" href={{ url_for( 'movieStatic', filename='base/images/logo.png' ) }}>
+    <link rel="stylesheet" href={{ url_for( 'movieStatic', filename='base/css/bootstrap.min.css' ) }}>
+    <link rel="stylesheet" href={{ url_for( 'movieStatic', filename='base/css/bootstrap-movie.css' ) }}>
+    <link rel="stylesheet" href={{ url_for( 'movieStatic', filename='base/css/animate.css' ) }}>
     <style>
         .navbar-brand>img {
             display: inline;
@@ -37,7 +37,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="index.html" class="navbar-brand" style="width:250px;">
-                    <img src={{ url_for( 'static', filename='base/images/logo.png' ) }} style="height:30px;">&nbsp;微电影
+                    <img src={{ url_for( 'movieStatic', filename='base/images/logo.png' ) }} style="height:30px;">&nbsp;微电影
                 </a>
             </div>
             <!--小屏幕导航按钮和logo-->
@@ -97,11 +97,11 @@
         </div>
     </footer>
     <!--底部-->
-    <script src= {{ url_for('static', filename='base/js/jquery.min.js') }}></script>
-    <script src={{ url_for('static', filename='base/js/bootstrap.min.js') }}></script>
-    <script src={{ url_for('static', filename='base/js/jquery.singlePageNav.min.js') }}></script>
-    <script src={{ url_for( 'static', filename='base/js/wow.min.js') }}></script>
-    <script src={{ url_for('static', filename='lazyload/jquery.lazyload.min.js')}}></script>
+    <script src= {{ url_for('movieStatic', filename='base/js/jquery.min.js') }}></script>
+    <script src={{ url_for('movieStatic', filename='base/js/bootstrap.min.js') }}></script>
+    <script src={{ url_for('movieStatic', filename='base/js/jquery.singlePageNav.min.js') }}></script>
+    <script src={{ url_for( 'movieStatic', filename='base/js/wow.min.js') }}></script>
+    <script src={{ url_for('movieStatic', filename='lazyload/jquery.lazyload.min.js')}}></script>
     <script src="//cdn.bootcss.com/holder/2.9.4/holder.min.js"></script>
     <script>
         $(function () {
