@@ -16,6 +16,9 @@ from app.home import home as home_blueprint
 from app.admin import admin as admin_blueprint
 from app.mobile import mobile as mobile_blueprint
 
+import importlib,sys
+importlib.reload(sys)
+
 # 注册路由
 app.register_blueprint(home_blueprint,url_prefix='/movie')
 app.register_blueprint(admin_blueprint, url_prefix='/movie/admin')
