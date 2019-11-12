@@ -39,7 +39,7 @@ def dated_url_for(endpoint, **values):
             values['v'] = int(os.stat(file_path).st_mtime)  # 取文件最后修改时间的时间戳，文件不更新，则可用缓存
             return url_for(endpoint, **values)
     else:
-        return url_for(endpoint)
+        return url_for(endpoint,**values)
 
 @app.errorhandler(404)
 def page_not_fount(error):

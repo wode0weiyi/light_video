@@ -21,6 +21,7 @@ class User(db.Model):
     userlogs = db.relationship('Userlog', backref='user')  #userlog的外键关系
     comments = db.relationship('Comment', backref='user')  #评论外键关系
     moviecols = db.relationship('Moviecol', backref='user')  #收藏外键关系
+    usernears = db.relationship('UserNear', backref='user') #最近登录用户外键关系
 
     def __repr__(self):
         return '<User %r>' % self.name
@@ -187,6 +188,12 @@ class Oplog(db.Model):
     def __repr__(self):
         return '<Oplog %r>' % self.id
 
+# 最近登录用户表
+class UserNear(db.Model):
+    __tablename__ = 'user_near'
+    id = db.Column(db.Integer,primary_key=True)
+    userId = db.Column(db.Integer,db.ForeignKey('user.id'))
+    
 
 if __name__ == "__main__":
     pass
