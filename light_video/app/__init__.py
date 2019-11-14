@@ -4,7 +4,7 @@ from flask import (Flask, render_template,url_for,redirect,Blueprint,request,fla
 import pymysql,os
 
 
-app = Flask(__name__,static_url_path='/movieStatic')
+app = Flask(__name__)
 app.config[
     'SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:0shiwodeweiyi@106.12.180.188:3306/movie?charset=utf8mb4"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
