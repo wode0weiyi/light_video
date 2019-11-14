@@ -29,7 +29,7 @@
                         <div class="form-group">
                             <label for="input_logo">{{ form.preview_logo.label }}</label>
                             {{ form.preview_logo }}
-                            <img src={{ url_for('movieStatic', filename='uploads/' + preview.logo) }} style="margin-top:5px;width: 200px;height: 100px;" class="img-responsive" alt="">
+                            <img src={{ url_for('static', filename='uploads/' + preview.logo) }} style="margin-top:5px;width: 200px;height: 100px;" class="img-responsive" alt="">
                         </div>
                         {% for err in form.preview_logo.errors %}
                         <div class="col-md-12">

@@ -4,7 +4,7 @@ from flask import (Flask, render_template,url_for,redirect,Blueprint,request,fla
 import pymysql,os
 
 
-app = Flask(__name__)
+app = Flask(__name__,static_url_path='/movieStatic')
 app.config[
     'SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:0shiwodeweiyi@106.12.180.188:3306/movie?charset=utf8mb4"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
@@ -33,10 +33,9 @@ def inject_url():
 
 def dated_url_for(endpoint, **values):
     print(endpoint,values)
-    if endpoint == 'movieStatic':
+    if endpoint == 'static':
         filename = values.get('filename', None)
         if filename:
-            endpoint = 'static'
             file_path = os.path.join(app.root_path, endpoint, filename)
             print(file_path)
             values['v'] = int(os.stat(file_path).st_mtime)  # 取文件最后修改时间的时间戳，文件不更新，则可用缓存
